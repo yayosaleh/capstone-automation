@@ -1,0 +1,12 @@
+﻿"outer_diameter"= 79.0mm
+
+"inner_diameter"= 47.0mm
+
+"spacer_thickness"= 17.0mm
+
+"bolt_diameter"= 10.0mm
+
+"bolt_placement_radius"= 31.5mm
+
+"num_bolts"= 8.0
+

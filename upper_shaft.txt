@@ -1,0 +1,12 @@
+﻿"shaft_diameter"= 50.0mm
+
+"ret_ring_inner_diameter"= 22.9mm
+
+"ret_ring_thickness"= 2.0mm
+
+"ret_ring_1_pos"= 8.0mm
+
+"ret_ring_2_pos"= 52.0mm
+
+"length"= 910.0mm
+
