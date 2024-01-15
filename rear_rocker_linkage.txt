@@ -10,5 +10,5 @@
 
 "bolt_diameter"= 10.0mm
 
-"bolt_spacing"= 10.0mm
+"bolt_spacing"= 5.0mm
 

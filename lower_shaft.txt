@@ -1,6 +1,6 @@
 ﻿"shaft_diameter"= 35.0mm
 
-"ret_ring_inner_diameter"= 16.1mm
+"ret_ring_inner_diameter"= 32.2mm
 
 "ret_ring_thickness"= 1.5mm
 
@@ -10,7 +10,7 @@
 
 "ret_ring_3_pos"= 28.5mm
 
-"ret_ring_4_pos"= 85.5mm
+"ret_ring_4_pos"= 86.5mm
 
-"length"= 90.0mm
+"length"= 91.0mm
 

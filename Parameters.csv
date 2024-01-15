@@ -26,8 +26,8 @@ linkage_mount_base_length,10,mm
 linkage_mount_bolt_diameter,10,mm
 ,,
 upper_shaft_diameter,50,mm
-upper_shaft_frame_clearance,3,mm
-upper_shaft_overhang,3,mm
+upper_shaft_frame_clearance,4,mm
+upper_shaft_overhang,4,mm
 ,,
 lower_shaft_diameter,35,mm
 lower_shaft_overhang,4.5,mm
@@ -44,9 +44,9 @@ lower_bearing_diameter,47,mm
 lower_bearing_outer_race_inner_diameter,44,mm
 lower_bearing_thickness,7,mm
 ,,
-upper_ret_ring_inner_diameter,22.9,mm
+upper_ret_ring_inner_diameter,45.8,mm
 upper_ret_ring_thickness,2,mm
-lower_ret_ring_inner_diameter,16.1,mm
+lower_ret_ring_inner_diameter,32.2,mm
 lower_ret_ring_thickness,1.5,mm
 ,,
 ,,

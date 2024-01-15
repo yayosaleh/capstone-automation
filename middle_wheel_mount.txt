@@ -1,0 +1,24 @@
+﻿"middle_wheel_shaft_diameter"= 41.97mm
+
+"middle_wheel_shaft_length"= 80.18mm
+
+"middle_wheel_shaft_overhang"= 10.0mm
+
+"wheel_diameter"= 200.0mm
+
+"wheel_thickness"= 83.89mm
+
+"linkage_thickness"= 20.0mm
+
+"linkage_width"= 30.0mm
+
+"linkage_mount_base_length"= 10.0mm
+
+"linkage_mount_tongue_length"= 35.0mm
+
+"linkage_mount_shoulder_depth"= 3.0mm
+
+"linkage_mount_bolt_diameter"= 10.0mm
+
+"linkage_mount_bolt_spacing"= 5.0mm
+

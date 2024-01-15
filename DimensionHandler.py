@@ -8,7 +8,7 @@ for name, (val, unit) in params_with_units.items():
 
 ## CONSTANTS ##
 
-BOLT_SPACING_FACTOR = 1
+BOLT_SPACING_FACTOR = 0.5
 STEERING_MOUNT_FILLET_RADIUS_FACTOR = 0.25
 
 ## VALIDATION ##
@@ -56,6 +56,11 @@ def get_shaft_map(prefix):
         "ret_ring_inner_diameter": (params[prefix + "ret_ring_inner_diameter"], "mm"),
         "ret_ring_thickness": (params[prefix + "ret_ring_thickness"], "mm")
     }
+
+# Appends key-value pairs from one map to another based on provided key list
+def append_map(key_list, src, dest):
+    dest.update({key: src[key] for key in key_list if key in src})
+    return
 
 ### All 'update' functions update respective text files and return maps ###
 
@@ -109,7 +114,7 @@ def update_rear_bogie_linkage():
     # Compute length and angle
     width = params["rover_length"] / 4 # w
     lower_pivot_housing_radius = get_pivot_housing_diameter("lower_") / 2 # r
-    length = width - (lower_pivot_housing_radius + (params["wheel_diameter"] / 2) + (2.5 * params["linkage_mount_base_length"])) # w - (r + D_w/2 + n_x/2 + 2b)
+    length = width - (lower_pivot_housing_radius + (params["wheel_diameter"] / 2) + (params["linkage_width"] / 2) + (2.5 * params["linkage_mount_base_length"])) # w - (r + D_w/2 + n_x/2 + 2b)
 
     # Update linkage file and return map
     linkage = get_linkage_map(length, 0)
@@ -178,7 +183,8 @@ def update_upper_shaft(upper_spacer_thickness):
     # Compute retention ring positions and length
     ret_ring_1_pos = params["upper_shaft_frame_clearance"] + params["swingarm_thickness"]
     ret_ring_2_pos = ret_ring_1_pos + 2 * params["linkage_thickness"] + upper_spacer_thickness
-    length = 2 * (ret_ring_2_pos + params["upper_shaft_overhang"]) + params["rover_width"]
+    ref_length = ret_ring_2_pos + params["upper_shaft_overhang"]
+    length = 2 * (ref_length) + params["frame_width"]
 
     # Print min bolt length
     min_bolt_length = ret_ring_2_pos - params["upper_shaft_frame_clearance"]
@@ -188,6 +194,7 @@ def update_upper_shaft(upper_spacer_thickness):
     shaft = get_shaft_map("upper_")
     shaft["ret_ring_1_pos"] = (ret_ring_1_pos, "mm")
     shaft["ret_ring_2_pos"] = (ret_ring_2_pos, "mm")
+    shaft["ref_length"] = (ref_length, "mm")
     shaft["length"] = (length, "mm")
 
     FileHandler.map_to_text_file(shaft, "upper_shaft.txt")
@@ -224,15 +231,24 @@ def update_steering_mount(prefix, offset, angle, pivot_housing):
         "arm_length": (params["linkage_mount_base_length"] + pivot_housing["linkage_mount_tongue_length"][0] + offset, "mm"),
         "angle": (angle, None),
         "width": (params["linkage_width"], "mm"),
-        "thickness": (params["linkage_thickness"], "mm")
+        "mount_thickness": (params["linkage_thickness"], "mm")
     }
     steering_mount["fillet_radius"] = (STEERING_MOUNT_FILLET_RADIUS_FACTOR * steering_mount["neck_height"][0], "mm")
 
     key_list = ["linkage_mount_tongue_length", "linkage_mount_shoulder_depth", "linkage_mount_bolt_diameter", "linkage_mount_bolt_spacing"]
-    steering_mount.update({key: pivot_housing[key] for key in key_list if key in pivot_housing})
+    append_map(key_list, pivot_housing, steering_mount)
     
     FileHandler.map_to_text_file(steering_mount, prefix + "steering_mount.txt")
     return steering_mount 
+
+def update_middle_wheel_mount(pivot_housing):
+    middle_wheel_mount = {}
+    params_key_list = ["middle_wheel_shaft_diameter", "middle_wheel_shaft_length", "middle_wheel_shaft_overhang", "wheel_diameter", "wheel_thickness", "linkage_thickness", "linkage_width"]
+    pivot_key_list = ["linkage_mount_base_length", "linkage_mount_tongue_length", "linkage_mount_shoulder_depth", "linkage_mount_bolt_diameter", "linkage_mount_bolt_spacing"]
+    append_map(params_key_list, params_with_units, middle_wheel_mount)
+    append_map(pivot_key_list, pivot_housing, middle_wheel_mount)
+    FileHandler.map_to_text_file(middle_wheel_mount, "middle_wheel_mount.txt")
+    return middle_wheel_mount
 
 ## MAIN ##
 
@@ -258,10 +274,11 @@ def main():
     update_upper_shaft(upper_spacer["spacer_thickness"][0])
     update_lower_shaft(upper_spacer["spacer_thickness"][0], lower_spacer["spacer_thickness"][0])
 
-    # Steering Mount
+    # Mounts
     update_steering_mount("front_", offset, front_rocker_linkage["angle"][0], upper_pivot_housing)
     update_steering_mount("rear_", 0, 0, lower_pivot_housing)
-
+    update_middle_wheel_mount(lower_pivot_housing)
+    
     return
 
 main()
