@@ -64,18 +64,14 @@ def get_shaft_map(prefix):
 # Side-effect: updates "front_steering_mount_base_length" in params_with_units map and text file
 def update_front_rocker_linkage():
     # Compute length and angle
-    height = ( params["ground_clearance"] + (0.5 * params["frame_height"]) ) - ( params["corner_wheel_asm_height"] + params["steering_asm_height"] ) # h1 - h2
+    height = ( params["ground_clearance"] + (0.5 * params["frame_height"]) ) - ( params["corner_wheel_asm_height"] + params["steering_asm_height"] + params["front_steering_mount_neck_height"]) # h1 - (h2 + n_y)
     width = 0.5 * (params["rover_length"] - params["wheel_diameter"]) # w 
     angle, extended_length = get_linkage_angle_and_extended_length(height, width) #theta, l
-    angle_rad = math.radians(angle)
+    alpha_rad = math.radians((angle + 90) / 2) # alpha
     upper_pivot_housing_radius = get_pivot_housing_diameter("upper_") / 2 # R
-    offset = params["linkage_width"] / (2 * math.tan(angle_rad)) # d
-    length = extended_length - (upper_pivot_housing_radius + params["linkage_mount_base_length"] + offset) # l - (R + b + d)
+    offset = params["linkage_width"] / (2 * math.tan(alpha_rad)) # d
+    length = extended_length - (upper_pivot_housing_radius + 2 * params["linkage_mount_base_length"] + offset) # l - (R + 2b + d)
     
-    # Update "front_steering_mount_base_length" in params_with_units map and text file  
-    params_with_units["front_steering_mount_base_length"] = (params["linkage_width"] / math.sin(angle_rad), "mm")
-    FileHandler.map_to_text_file(params_with_units, "params.txt")
-
     # Update linkage file and return map
     linkage = get_linkage_map(length, angle)
     FileHandler.map_to_text_file(linkage, "front_rocker_linkage.txt")
@@ -174,6 +170,7 @@ def update_spacer(prefix, pivot_housing):
     return spacer
 
 ## SHAFTS ##
+
 # Take spacer thicknesses
 # Side-effect: prints min bolt length
 
