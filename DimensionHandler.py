@@ -9,7 +9,7 @@ for name, (val, unit) in params_with_units.items():
 ## CONSTANTS ##
 
 BOLT_SPACING_FACTOR = 1
-STEERING_MOUNT_FILLET_RADIUS_FACTOR = 0.5
+STEERING_MOUNT_FILLET_RADIUS_FACTOR = 0.25
 
 ## VALIDATION ##
 
@@ -61,7 +61,7 @@ def get_shaft_map(prefix):
 
 ## LINKAGES ##
 
-# Side-effect: updates "front_steering_mount_base_length" in params_with_units map and text file
+# Returns offset in addition to linkage map
 def update_front_rocker_linkage():
     # Compute length and angle
     height = ( params["ground_clearance"] + (0.5 * params["frame_height"]) ) - ( params["corner_wheel_asm_height"] + params["steering_asm_height"] + params["front_steering_mount_neck_height"]) # h1 - (h2 + n_y)
@@ -75,7 +75,7 @@ def update_front_rocker_linkage():
     # Update linkage file and return map
     linkage = get_linkage_map(length, angle)
     FileHandler.map_to_text_file(linkage, "front_rocker_linkage.txt")
-    return linkage
+    return linkage, offset
 
 def update_rear_rocker_linkage():
     # Compute length and angle
@@ -216,6 +216,24 @@ def update_lower_shaft(upper_spacer_thickness, lower_spacer_thickness):
     FileHandler.map_to_text_file(shaft, "lower_shaft.txt")
     return shaft
 
+## STEERING MOUNTS ##
+
+def update_steering_mount(prefix, offset, angle, pivot_housing):
+    steering_mount = {
+        "neck_height": (params[prefix + "steering_mount_neck_height"], "mm"),
+        "arm_length": (params["linkage_mount_base_length"] + pivot_housing["linkage_mount_tongue_length"][0] + offset, "mm"),
+        "angle": (angle, None),
+        "width": (params["linkage_width"], "mm"),
+        "thickness": (params["linkage_thickness"], "mm")
+    }
+    steering_mount["fillet_radius"] = (STEERING_MOUNT_FILLET_RADIUS_FACTOR * steering_mount["neck_height"][0], "mm")
+
+    key_list = ["linkage_mount_tongue_length", "linkage_mount_shoulder_depth", "linkage_mount_bolt_diameter", "linkage_mount_bolt_spacing"]
+    steering_mount.update({key: pivot_housing[key] for key in key_list if key in pivot_housing})
+    
+    FileHandler.map_to_text_file(steering_mount, prefix + "steering_mount.txt")
+    return steering_mount 
+
 ## MAIN ##
 
 def main():
@@ -223,7 +241,7 @@ def main():
     print(f"Rover width is valid: {validate_rover_width()}\n")
     
     # Linkages
-    front_rocker_linkage = update_front_rocker_linkage()
+    front_rocker_linkage, offset = update_front_rocker_linkage()
     rear_rocker_linkage = update_rear_rocker_linkage()
     middle_bogie_linkage = update_middle_bogie_linkage()
     rear_bogie_linkage = update_rear_bogie_linkage()
@@ -239,6 +257,10 @@ def main():
     # Shafts
     update_upper_shaft(upper_spacer["spacer_thickness"][0])
     update_lower_shaft(upper_spacer["spacer_thickness"][0], lower_spacer["spacer_thickness"][0])
+
+    # Steering Mount
+    update_steering_mount("front_", offset, front_rocker_linkage["angle"][0], upper_pivot_housing)
+    update_steering_mount("rear_", 0, 0, lower_pivot_housing)
 
     return
 

@@ -4,9 +4,9 @@
 
 "wall_thickness"= 3.0mm
 
-"length"= 284.49917280753425mm
+"length"= 299.3179046755698mm
 
-"angle"= 46.76744352539793
+"angle"= 48.83451044543235
 
 "bolt_diameter"= 10.0mm
 

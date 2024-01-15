@@ -1,0 +1,20 @@
+﻿"neck_height"= 30.0mm
+
+"arm_length"= 73.60591964945573mm
+
+"angle"= 5.580088106667777
+
+"width"= 30.0mm
+
+"thickness"= 20.0mm
+
+"fillet_radius"= 7.5mm
+
+"linkage_mount_tongue_length"= 50.0mm
+
+"linkage_mount_shoulder_depth"= 3.0mm
+
+"linkage_mount_bolt_diameter"= 10.0mm
+
+"linkage_mount_bolt_spacing"= 10.0mm
+

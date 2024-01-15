@@ -12,7 +12,7 @@
 
 "housing_bolt_diameter"= 10.0mm
 
-"linkage_separation_angle"= 130.1067349990035
+"linkage_separation_angle"= 168.91815478211876
 
 "bolt_placement_radius"= 40.5mm
 
