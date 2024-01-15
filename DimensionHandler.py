@@ -114,7 +114,7 @@ def update_rear_bogie_linkage():
     # Compute length and angle
     width = params["rover_length"] / 4 # w
     lower_pivot_housing_radius = get_pivot_housing_diameter("lower_") / 2 # r
-    length = width - (lower_pivot_housing_radius + (params["wheel_diameter"] / 2) + (params["linkage_width"] / 2) + (2.5 * params["linkage_mount_base_length"])) # w - (r + D_w/2 + n_x/2 + 2b)
+    length = width - (lower_pivot_housing_radius + (params["wheel_diameter"] / 2) + (params["linkage_width"] / 2) + (2 * params["linkage_mount_base_length"])) # w - (r + D_w/2 + n_x/2 + 2b)
 
     # Update linkage file and return map
     linkage = get_linkage_map(length, 0)
