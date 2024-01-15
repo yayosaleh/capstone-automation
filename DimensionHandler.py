@@ -6,6 +6,11 @@ params = dict()
 for name, (val, unit) in params_with_units.items():
     params[name] = val
 
+## CONSTANTS ##
+
+BOLT_SPACING_FACTOR = 1
+STEERING_MOUNT_FILLET_RADIUS_FACTOR = 0.5
+
 ## VALIDATION ##
 
 def validate_rover_width():
@@ -33,7 +38,6 @@ def get_linkage_angle_and_extended_length(height, width):
     return (math.degrees(math.atan2(height, width)), math.sqrt(height**2 + width**2))
 
 # Constructs and returns linkage map
-# ***ASSUMES BOLT SPACING = BOLT DIAMETER
 def get_linkage_map(length, angle):
     return {
         "linkage_thickness": (params["linkage_thickness"], "mm"),
@@ -42,7 +46,7 @@ def get_linkage_map(length, angle):
         "length": (length, "mm"),
         "angle": (angle, None),
         "bolt_diameter": (params["linkage_mount_bolt_diameter"], "mm"),
-        "bolt_spacing": (params["linkage_mount_bolt_diameter"], "mm") # Possibly reduce to fraction of bolt diameter
+        "bolt_spacing": (BOLT_SPACING_FACTOR * params["linkage_mount_bolt_diameter"], "mm")
     }
 
 # Constructs and returns partial shaft map
@@ -119,7 +123,6 @@ def update_rear_bogie_linkage():
 ## PIVOT HOUSINGS & SPACERS ##
 
 # Takes prefix and angles of housed linkages
-# ***ASSUMES BOLT SPACING = BOLT DIAMETER
 def update_pivot_housing(prefix, interior_angle_1, interior_angle_2):
     pivot_housing = {
         "housing_diameter": (get_pivot_housing_diameter(prefix), "mm"),
@@ -143,7 +146,7 @@ def update_pivot_housing(prefix, interior_angle_1, interior_angle_2):
         "linkage_mount_tongue_length": None
     }
     pivot_housing["bolt_placement_radius"] = ((pivot_housing["bearing_diameter"][0] / 2) + pivot_housing["housing_min_wall_thickness"][0] + (pivot_housing["housing_bolt_diameter"][0] / 2), "mm")
-    pivot_housing["linkage_mount_bolt_spacing"] = (pivot_housing["linkage_mount_bolt_diameter"][0], "mm") # Possibly reduce to fraction of bolt diameter
+    pivot_housing["linkage_mount_bolt_spacing"] = (BOLT_SPACING_FACTOR * pivot_housing["linkage_mount_bolt_diameter"][0], "mm")
     pivot_housing["linkage_mount_tongue_length"] = (3 * pivot_housing["linkage_mount_bolt_spacing"][0] + 2 * pivot_housing["linkage_mount_bolt_diameter"][0], "mm") # Only accounts for 2 bolts
     
     FileHandler.map_to_text_file(pivot_housing, prefix + "pivot_housing.txt")
