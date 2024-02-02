@@ -1,7 +1,7 @@
 ﻿rover_width,800,mm
 rover_length,1000,mm
 ,,
-frame_width,350,mm
+frame_width,300,mm
 frame_height,200,mm
 ground_clearance,310,mm
 ,,
@@ -13,13 +13,13 @@ front_steering_mount_neck_height,30,mm
 ,,
 corner_wheel_asm_height,250,mm
 middle_wheel_shaft_diameter,41.97,mm
-middle_wheel_shaft_length,80.18,mm
+middle_wheel_shaft_length,110,mm
 middle_wheel_shaft_overhang,10,mm
 middle_wheel_clearance,4,mm
 wheel_diameter,200,mm
-wheel_thickness,83.89,mm
+wheel_thickness,80,mm
 ,,
-linkage_thickness,20,mm
+linkage_thickness,18,mm
 linkage_width,30,mm
 linkage_wall_thickness,3,mm
 linkage_mount_base_length,10,mm
@@ -33,9 +33,9 @@ lower_shaft_diameter,35,mm
 lower_shaft_overhang,4.5,mm
 ,,
 pivot_housing_min_wall_thickness,3,mm
-pivot_housing_bolt_diameter,10,mm
+pivot_housing_bolt_diameter,5,mm
 upper_pivot_housing_num_bolts,12,
-lower_pivot_housing_num_bolts,8,
+lower_pivot_housing_num_bolts,6,
 ,,
 upper_bearing_diameter,65,mm
 upper_bearing_outer_race_inner_diameter,61,mm
@@ -48,6 +48,3 @@ upper_ret_ring_inner_diameter,45.8,mm
 upper_ret_ring_thickness,2,mm
 lower_ret_ring_inner_diameter,32.2,mm
 lower_ret_ring_thickness,1.5,mm
-,,
-,,
-,,

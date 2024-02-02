@@ -1,6 +1,6 @@
-﻿"housing_diameter"= 97.0mm
+﻿"housing_diameter"= 87.0mm
 
-"housing_thickness"= 20.0mm
+"housing_thickness"= 18.0mm
 
 "bearing_diameter"= 65.0mm
 
@@ -10,11 +10,11 @@
 
 "housing_min_wall_thickness"= 3.0mm
 
-"housing_bolt_diameter"= 10.0mm
+"housing_bolt_diameter"= 5.0mm
 
 "linkage_separation_angle"= 168.91815478211876
 
-"bolt_placement_radius"= 40.5mm
+"bolt_placement_radius"= 38.0mm
 
 "num_bolts"= 12.0
 

@@ -6,7 +6,7 @@
 
 "width"= 30.0mm
 
-"mount_thickness"= 20.0mm
+"mount_thickness"= 18.0mm
 
 "fillet_radius"= 7.5mm
 

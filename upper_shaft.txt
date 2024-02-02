@@ -6,9 +6,9 @@
 
 "ret_ring_1_pos"= 9.0mm
 
-"ret_ring_2_pos"= 53.0mm
+"ret_ring_2_pos"= 49.0mm
 
-"ref_length"= 57.0mm
+"ref_length"= 53.0mm
 
-"length"= 464.0mm
+"length"= 406.0mm
 

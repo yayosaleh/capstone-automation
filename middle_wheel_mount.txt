@@ -1,14 +1,14 @@
 ﻿"middle_wheel_shaft_diameter"= 41.97mm
 
-"middle_wheel_shaft_length"= 80.18mm
+"middle_wheel_shaft_length"= 110.0mm
 
 "middle_wheel_shaft_overhang"= 10.0mm
 
 "wheel_diameter"= 200.0mm
 
-"wheel_thickness"= 83.89mm
+"wheel_thickness"= 80.0mm
 
-"linkage_thickness"= 20.0mm
+"linkage_thickness"= 18.0mm
 
 "linkage_width"= 30.0mm
 

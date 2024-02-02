@@ -6,11 +6,11 @@
 
 "ret_ring_1_pos"= 4.5mm
 
-"ret_ring_2_pos"= 24.5mm
+"ret_ring_2_pos"= 22.5mm
 
-"ret_ring_3_pos"= 28.5mm
+"ret_ring_3_pos"= 26.5mm
 
-"ret_ring_4_pos"= 86.5mm
+"ret_ring_4_pos"= 80.5mm
 
-"length"= 91.0mm
+"length"= 85.0mm
 

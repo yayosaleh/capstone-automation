@@ -1,10 +1,10 @@
-﻿"linkage_thickness"= 20.0mm
+﻿"linkage_thickness"= 18.0mm
 
 "width"= 30.0mm
 
 "wall_thickness"= 3.0mm
 
-"length"= 319.79860433603017mm
+"length"= 324.79860433603017mm
 
 "angle"= 5.580088106667777
 
