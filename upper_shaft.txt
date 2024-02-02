@@ -4,6 +4,12 @@
 
 "ret_ring_thickness"= 2.0mm
 
+"shaft_inner_diameter"= 39.8mm
+
+"frame_width"= 300.0mm
+
+"frame_wall_thickness"= 1.5mm
+
 "ret_ring_1_pos"= 9.0mm
 
 "ret_ring_2_pos"= 49.0mm

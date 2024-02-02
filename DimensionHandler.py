@@ -1,7 +1,9 @@
 import math
 import FileHandler
 
+## TODO: INIT ##
 params_with_units = FileHandler.csv_to_map("Parameters.csv")
+FileHandler.map_to_text_file(params_with_units, "params.txt") # TODO: validate behaviour
 params = dict()
 for name, (val, unit) in params_with_units.items():
     params[name] = val
@@ -192,6 +194,9 @@ def update_upper_shaft(upper_spacer_thickness):
 
     # Update file and return map
     shaft = get_shaft_map("upper_")
+    shaft["shaft_inner_diameter"] = (shaft["ret_ring_inner_diameter"][0] - 2 * params["upper_shaft_min_wall_thickness"], "mm")
+    shaft["frame_width"] = params_with_units["frame_width"]
+    shaft["frame_wall_thickness"] = params_with_units["frame_wall_thickness"]
     shaft["ret_ring_1_pos"] = (ret_ring_1_pos, "mm")
     shaft["ret_ring_2_pos"] = (ret_ring_2_pos, "mm")
     shaft["ref_length"] = (ref_length, "mm")

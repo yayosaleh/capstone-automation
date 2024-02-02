@@ -1,40 +1,84 @@
-﻿"rover_width"= 800.0mm
-"rover_length"= 1000.0mm
-"frame_width"= 350.0mm
-"frame_height"= 200.0mm
-"ground_clearance"= 400.0mm
-"swingarm_thickness"= 5.0mm
-"steering_asm_height"= 90.92mm
-"rear_steering_mount_neck_height"= 10.0mm
-"front_steering_mount_base_length"= 81.18035315337238mm
-"corner_wheel_asm_height"= 250.0mm
-"middle_wheel_shaft_diameter"= 41.97mm
-"middle_wheel_shaft_length"= 80.18mm
-"middle_wheel_shaft_overhang"= 10.0mm
-"middle_wheel_clearance"= 4.0mm
-"wheel_diameter"= 200.0mm
-"wheel_thickness"= 83.89mm
-"linkage_thickness"= 20.0mm
-"linkage_width"= 30.0mm
-"linkage_wall_thickness"= 3.0mm
-"linkage_mount_base_length"= 10.0mm
-"linkage_mount_bolt_diameter"= 10.0mm
-"upper_shaft_diameter"= 50.0mm
-"upper_shaft_frame_clearance"= 3.0mm
-"upper_shaft_overhang"= 3.0mm
-"lower_shaft_diameter"= 35.0mm
-"lower_shaft_overhang"= 4.5mm
-"pivot_housing_min_wall_thickness"= 3.0mm
-"pivot_housing_bolt_diameter"= 10.0mm
-"upper_pivot_housing_num_bolts"= 12.0
-"lower_pivot_housing_num_bolts"= 8.0
-"upper_bearing_diameter"= 65.0mm
-"upper_bearing_outer_race_inner_diameter"= 61.0mm
-"upper_bearing_thickness"= 7.0mm
-"lower_bearing_diameter"= 47.0mm
-"lower_bearing_outer_race_inner_diameter"= 44.0mm
-"lower_bearing_thickness"= 7.0mm
-"upper_ret_ring_inner_diameter"= 22.9mm
-"upper_ret_ring_thickness"= 2.0mm
-"lower_ret_ring_inner_diameter"= 16.1mm
-"lower_ret_ring_thickness"= 1.5mm
+﻿"rover_width"= 800.0mm
+
+"rover_length"= 1000.0mm
+
+"frame_width"= 300.0mm
+
+"frame_height"= 200.0mm
+
+"frame_wall_thickness"= 1.5mm
+
+"ground_clearance"= 310.0mm
+
+"swingarm_thickness"= 5.0mm
+
+"steering_asm_height"= 90.92mm
+
+"rear_steering_mount_neck_height"= 30.0mm
+
+"front_steering_mount_neck_height"= 30.0mm
+
+"corner_wheel_asm_height"= 250.0mm
+
+"middle_wheel_shaft_diameter"= 41.97mm
+
+"middle_wheel_shaft_length"= 110.0mm
+
+"middle_wheel_shaft_overhang"= 10.0mm
+
+"middle_wheel_clearance"= 4.0mm
+
+"wheel_diameter"= 200.0mm
+
+"wheel_thickness"= 80.0mm
+
+"linkage_thickness"= 18.0mm
+
+"linkage_width"= 30.0mm
+
+"linkage_wall_thickness"= 3.0mm
+
+"linkage_mount_base_length"= 10.0mm
+
+"linkage_mount_bolt_diameter"= 10.0mm
+
+"upper_shaft_diameter"= 50.0mm
+
+"upper_shaft_min_wall_thickness"= 3.0mm
+
+"upper_shaft_frame_clearance"= 4.0mm
+
+"upper_shaft_overhang"= 4.0mm
+
+"lower_shaft_diameter"= 35.0mm
+
+"lower_shaft_overhang"= 4.5mm
+
+"pivot_housing_min_wall_thickness"= 3.0mm
+
+"pivot_housing_bolt_diameter"= 5.0mm
+
+"upper_pivot_housing_num_bolts"= 12.0
+
+"lower_pivot_housing_num_bolts"= 6.0
+
+"upper_bearing_diameter"= 65.0mm
+
+"upper_bearing_outer_race_inner_diameter"= 61.0mm
+
+"upper_bearing_thickness"= 7.0mm
+
+"lower_bearing_diameter"= 47.0mm
+
+"lower_bearing_outer_race_inner_diameter"= 44.0mm
+
+"lower_bearing_thickness"= 7.0mm
+
+"upper_ret_ring_inner_diameter"= 45.8mm
+
+"upper_ret_ring_thickness"= 2.0mm
+
+"lower_ret_ring_inner_diameter"= 32.2mm
+
+"lower_ret_ring_thickness"= 1.5mm
+
